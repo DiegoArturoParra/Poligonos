@@ -5,9 +5,6 @@ package edu.cundi.poligonos.Models;
  */
 public class Triangulo extends Poligonos {
     
-    public Triangulo(double coordenadax1y1, double coordenadax2y2, double coordenadax3y3) {
-        super(coordenadax1y1, coordenadax2y2, coordenadax3y3);
-    }
 
     @Override
     public double hallarPerimetro() {
