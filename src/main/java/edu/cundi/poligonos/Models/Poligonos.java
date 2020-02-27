@@ -65,35 +65,32 @@ public class Poligonos {
     }
 
     public double getDistanciaCoordenadasx1y1_x2y2() {
+        distanciaCoordenadasx1y1_x2y2 = Math.hypot(coordenadax2-coordenadax1, coordenaday2-coordenaday1);
         return distanciaCoordenadasx1y1_x2y2;
     }
 
-    public void setDistanciaCoordenadasx1y1_x2y2(double distanciaCoordenadasx1y1_x2y2) {
-        
-        distanciaCoordenadasx1y1_x2y2 =  Math.sqrt(Math.pow(coordenaday2 - coordenaday1, 2) 
-                + Math.pow(coordenadax2 - coordenadax1, 2));
-        
+    public void setDistanciaCoordenadasx1y1_x2y2(double distanciaCoordenadasx1y1_x2y2) {        
         this.distanciaCoordenadasx1y1_x2y2 = distanciaCoordenadasx1y1_x2y2;
     }
 
     public double getDistanciaCoordenadasx2y2_x3y3() {
+               distanciaCoordenadasx2y2_x3y3= Math.hypot(coordenadax3-coordenadax2, coordenaday3-coordenaday2);
         return distanciaCoordenadasx2y2_x3y3;
     }
 
     public void setDistanciaCoordenadasx2y2_x3y3(double distanciaCoordenadasx2y2_x3y3) {
-        distanciaCoordenadasx2y2_x3y3= Math.sqrt(Math.pow(coordenadax3 - coordenadax1, 2) 
-                + Math.pow(coordenaday3 - coordenaday1, 2));
         
         this.distanciaCoordenadasx2y2_x3y3 = distanciaCoordenadasx2y2_x3y3;
     }
 
     public double getDistanciaCoordenadasx1y1_x3y3() {
+        
+          distanciaCoordenadasx1y1_x3y3 =  Math.hypot(coordenadax3-coordenadax1, coordenaday3-coordenaday1);
         return distanciaCoordenadasx1y1_x3y3;
     }
 
     public void setDistanciaCoordenadasx1y1_x3y3(double distanciaCoordenadasx1y1_x3y3) {
-        distanciaCoordenadasx1y1_x3y3 =  Math.sqrt(Math.pow(coordenadax3 - coordenadax2, 2) 
-                + Math.pow(coordenaday3 - coordenaday2, 2));
+      
         this.distanciaCoordenadasx1y1_x3y3 = distanciaCoordenadasx1y1_x3y3;
     }
 
