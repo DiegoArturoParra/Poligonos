@@ -1,16 +1,14 @@
-
 package edu.cundi.poligonos.Models;
 
 /**
  *
  * @author diego parra
  */
-public class Cuadrado extends Poligonos {
-    private double coordenadax4;
-    private double coordenaday4;
+public class Cuadrado extends Cuadrilatero {
 
     
 
+    
     @Override
     public double hallarPerimetro() {
         return super.hallarPerimetro(); //To change body of generated methods, choose Tools | Templates.
@@ -20,6 +18,5 @@ public class Cuadrado extends Poligonos {
     public double hallarArea() {
         return super.hallarArea(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }
