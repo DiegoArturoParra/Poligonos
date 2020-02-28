@@ -3,6 +3,7 @@ package edu.cundi.poligonos.Controllers;
 import edu.cundi.poligonos.Models.*;
 import edu.cundi.poligonos.Views.*;
 import java.awt.event.*;
+import javax.swing.JOptionPane;
 
 /**
  * Esta clase registra lo del formulario.
@@ -94,37 +95,56 @@ public class RegistrarCoordenadas implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnCalcular) {
-            /**
-             * Se invoca el método registroTriangulo para registrar las
-             * coordenadas del triangulo.
-             */
+
             if (vista.listaFiguras.getSelectedItem().equals("Triangulo")) {
-                registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                        Double.parseDouble(vista.inputCoordenaday3.getText()));
+                try {
+                    /**
+                     * Se invoca el método registroTriangulo para registrar las
+                     * coordenadas del triangulo.
+                     */
+                    registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
+                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
+                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
+                            Double.parseDouble(vista.inputCoordenaday3.getText()));
+
+                } catch (NumberFormatException e1) {
+                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("Datos no tomados" + e1);
+                    limpiar();
+                }
 
             } else if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
-                /**
-                 ** Se invoca el método registroCuadrilatero para registrar las
-                 * coordenadas del cuadrado.
-                 */
-                registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                        Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                        Double.parseDouble(vista.inputCoordenaday4.getText()));
-
+                try {
+                    /**
+                     ** Se invoca el método registroCuadrilatero para registrar
+                     * las coordenadas del cuadrado.
+                     */
+                    registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
+                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
+                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
+                            Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
+                            Double.parseDouble(vista.inputCoordenaday4.getText()));
+                } catch (NumberFormatException e1) {
+                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("Datos no tomados" + e1);
+                    limpiar();
+                }
             } else if (vista.listaFiguras.getSelectedItem().equals("Rectangulo")) {
-                /**
-                 * Se invoca el método registroCuadrilatero para registrar las
-                 * coordenadas del rectangulo.
-                 */
-                registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                        Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                        Double.parseDouble(vista.inputCoordenaday4.getText()));
+                try {
+                    /**
+                     * Se invoca el método registroCuadrilatero para registrar
+                     * las coordenadas del rectangulo.
+                     */
+                    registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
+                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
+                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
+                            Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
+                            Double.parseDouble(vista.inputCoordenaday4.getText()));
+                } catch (NumberFormatException e1) {
+                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
+                    System.out.println("Datos no tomados" + e1);
+                    limpiar();
+                }
             }
         }
         /**
