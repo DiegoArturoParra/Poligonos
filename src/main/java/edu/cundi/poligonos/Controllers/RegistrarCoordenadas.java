@@ -109,7 +109,7 @@ public class RegistrarCoordenadas implements ActionListener {
 
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados" + e1);
+                    System.out.println("Datos no tomados. " + e1);
                     limpiar();
                 }
 
@@ -126,7 +126,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday4.getText()));
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados" + e1);
+                    System.out.println("Datos no tomados. " + e1);
                     limpiar();
                 }
             } else if (vista.listaFiguras.getSelectedItem().equals("Rectangulo")) {
@@ -142,7 +142,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday4.getText()));
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados" + e1);
+                    System.out.println("Datos no tomados. " + e1);
                     limpiar();
                 }
             }
