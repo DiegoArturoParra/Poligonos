@@ -69,7 +69,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x1
      */
     public double getCoordenadax1() {
         return coordenadax1;
@@ -85,7 +85,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x4
      */
     public double getCoordenaday1() {
         return coordenaday1;
@@ -101,7 +101,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x4
      */
     public double getCoordenadax2() {
         return coordenadax2;
@@ -117,7 +117,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x4
      */
     public double getCoordenaday2() {
         return coordenaday2;
@@ -133,7 +133,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x4
      */
     public double getCoordenadax3() {
         return coordenadax3;
@@ -149,7 +149,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return Método que devuelve la coordenada x4
      */
     public double getCoordenaday3() {
         return coordenaday3;
@@ -165,7 +165,8 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return étodo que devuelve la distancia que hay entre coordenadas x1-y1
+     * x2-y2
      */
     public double getDistanciaCoordenadasx1y1_x2y2() {
         distanciaCoordenadasx1y1_x2y2 = Math.hypot(coordenadax2 - coordenadax1, coordenaday2 - coordenaday1);
@@ -182,7 +183,8 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return étodo que devuelve la distancia que hay entre coordenadas x2-y2,
+     * x3-y3
      */
     public double getDistanciaCoordenadasx2y2_x3y3() {
         distanciaCoordenadasx2y2_x3y3 = Math.hypot(coordenadax3 - coordenadax2, coordenaday3 - coordenaday2);
@@ -200,7 +202,8 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return étodo que devuelve la distancia que hay entre coordenadas x1-y1,
+     * x3-y3
      */
     public double getDistanciaCoordenadasx1y1_x3y3() {
 
@@ -219,7 +222,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return método de la clase padre que halla el area.
      */
     public double hallarArea() {
         return 0;
@@ -227,7 +230,7 @@ public class Poligonos {
 
     /**
      *
-     * @return
+     * @return método de la clase padre que halla el perimetro.
      */
     public double hallarPerimetro() {
         return 0;

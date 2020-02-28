@@ -43,7 +43,7 @@ public class RegistrarCoordenadas implements ActionListener {
         Triangulo t1 = new Triangulo(x1, y1, x2, y2, x3, y3);
         vista.inputArea.setText(Double.toString(t1.hallarArea()));
         vista.inputPerimetro.setText(Double.toString(t1.hallarPerimetro()));
-
+        vista.inputTipoTriangulo.setText(t1.hallarTipoTriangulo());
     }
 
     /**

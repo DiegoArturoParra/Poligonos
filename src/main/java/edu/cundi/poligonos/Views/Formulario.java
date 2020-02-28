@@ -1,15 +1,16 @@
 package edu.cundi.poligonos.Views;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+
 /**
  *
  * @author diego parra
+ * @version 1.0.0
  */
 public class Formulario extends JFrame {
 
-    public final JLabel labelTipo = new JLabel("Escoja Su Figura:");
+    public final JLabel labelTipoPoligono = new JLabel("Escoja Su Figura:");
     public final JLabel labelCoordenadax1 = new JLabel("Coordenada x1");
     public JTextField inputCoordenadax1 = new JTextField();
     public final JLabel labelCoordenaday1 = new JLabel("Coordenada y1");
@@ -26,6 +27,8 @@ public class Formulario extends JFrame {
     public JTextField inputCoordenadax4 = new JTextField();
     public final JLabel labelCoordenaday4 = new JLabel("Coordenada y4");
     public JTextField inputCoordenaday4 = new JTextField();
+    public final JLabel labelTipoTriangulo = new JLabel("Tipo De Triangulo");
+    public JTextField inputTipoTriangulo = new JTextField();
     public final JLabel labelArea = new JLabel("Area");
     public JTextField inputArea = new JTextField();
     public final JLabel labelPerimetro = new JLabel("Perimetro");
@@ -39,14 +42,14 @@ public class Formulario extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setTitle("Poligonos Triangulo, Cuadrado, Rectangulo");
-        this.setSize(350, 400);
+        this.setSize(300, 400);
         this.setLocationRelativeTo(null);
-        setLayout(new GridLayout(13, 7, 10, 5));
+        setLayout(new GridLayout(14, 7, 10, 5));
 
         listaFiguras.addItem("Cuadrado");
         listaFiguras.addItem("Rectangulo");
         listaFiguras.addItem("Triangulo");
-        add(labelTipo);
+        add(labelTipoPoligono);
         add(listaFiguras);
         add(labelCoordenadax1);
         add(inputCoordenadax1);
@@ -64,6 +67,9 @@ public class Formulario extends JFrame {
         add(inputCoordenadax4);
         add(labelCoordenaday4);
         add(inputCoordenaday4);
+        add(labelTipoTriangulo);
+        add(inputTipoTriangulo);
+        inputTipoTriangulo.setFocusable(false);
         add(labelArea);
         add(inputArea);
         inputArea.setFocusable(false);

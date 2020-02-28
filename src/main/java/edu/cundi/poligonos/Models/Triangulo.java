@@ -58,12 +58,38 @@ public class Triangulo extends Poligonos {
 
     /**
      *
-     * @return Este metodo halla el área del triangulo según las coordenadas a partir de la formula de determinante.
+     * @return Este metodo halla el área del triangulo según las coordenadas a
+     * partir de la formula de determinante.
      */
     @Override
     public double hallarArea() {
         return Math.abs(getCoordenadax1() * (getCoordenaday2() - getCoordenaday3()) + getCoordenadax2()
                 * (getCoordenaday3() - getCoordenaday1()) + getCoordenadax3() * (getCoordenaday1() - getCoordenaday2())) / 2;
+    }
+
+    /**
+     *
+     * @return Método que halla que tipo de triangulo es segun sus lados, se
+     * hizo con las distancias.
+     */
+    public String hallarTipoTriangulo() {
+
+        if (getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx1y1_x3y3()
+                && getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx2y2_x3y3()) {
+            tipoTriangulo = "Equilatero";
+        } else if (getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx1y1_x3y3()
+                || getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx2y2_x3y3()
+                || getDistanciaCoordenadasx1y1_x3y3() == getDistanciaCoordenadasx2y2_x3y3()) {
+            tipoTriangulo = "Isósceles";
+        } else if (getDistanciaCoordenadasx1y1_x2y2() != getDistanciaCoordenadasx1y1_x3y3()
+                && getDistanciaCoordenadasx1y1_x2y2() != getDistanciaCoordenadasx2y2_x3y3()
+                && getDistanciaCoordenadasx1y1_x3y3() != getDistanciaCoordenadasx2y2_x3y3()) {
+            tipoTriangulo = "Escaleno";
+        } else {
+            tipoTriangulo = "No es un triangulo";
+        }
+        return tipoTriangulo;
+
     }
 
 }
