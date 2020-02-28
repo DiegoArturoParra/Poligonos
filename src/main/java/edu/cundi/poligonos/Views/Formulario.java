@@ -3,9 +3,6 @@ package edu.cundi.poligonos.Views;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import edu.cundi.poligonos.Controllers.RegistrarCoordenadas;
-import edu.cundi.poligonos.Models.Triangulo;
-
 /**
  *
  * @author diego parra

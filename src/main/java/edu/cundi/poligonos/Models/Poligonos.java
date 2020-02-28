@@ -47,12 +47,6 @@ public class Poligonos {
     private double distanciaCoordenadasx1y1_x3y3;
 
     /**
-     * Constructor vacio
-     */
-    public Poligonos() {
-    }
-
-    /**
      * Constructor de la clase padre con los parametros en comun de las clases
      * hijas.
      *

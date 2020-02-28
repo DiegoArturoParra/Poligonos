@@ -128,14 +128,4 @@ public class Cuadrilatero extends Poligonos {
     public void setDistanciaCoordenadasx2y2_x4y4(double distanciaCoordenadasx2y2_x4y4) {
         this.distanciaCoordenadasx2y2_x4y4 = distanciaCoordenadasx2y2_x4y4;
     }
-
-    /**
-     *
-     * @return Metodo que halla el area tanto del cuadrado como el rectangulo.
-     */
-    @Override
-    public double hallarArea() {
-        return super.hallarArea();
-    }
-
 }

@@ -36,4 +36,12 @@ public class Rectangulo extends Cuadrilatero {
         return 2 * (getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx4y4_x1y1());
     }
 
+    /**
+     *
+     * @return Metodo que halla el area tanto del rectangulo.
+     */
+    @Override
+    public double hallarArea() {
+        return getDistanciaCoordenadasx1y1_x2y2() * getDistanciaCoordenadasx4y4_x1y1();
+    }
 }
