@@ -1,12 +1,5 @@
 package edu.cundi.poligonos.Models;
 
-/**
- * Esta clase hereda de la clase Padre Poligonos, el cual tiene los metodos y
- * atributos en común.
- *
- * @author diego parra
- * @version 1.0.0
- */
 public class Triangulo extends Poligonos {
 
     /**
@@ -17,12 +10,12 @@ public class Triangulo extends Poligonos {
     /**
      * Constructor que recibe parametros de las coordenadas:
      *
-     * @param coordenadax1
-     * @param coordenaday1
-     * @param coordenadax2
-     * @param coordenaday2
-     * @param coordenadax3
-     * @param coordenaday3
+     * @param coordenadax1 párametro que guarda la coordenada x1.
+     * @param coordenadax2 párametro que guarda la coordenada x2.
+     * @param coordenaday2 párametro que guarda la coordenada y2.
+     * @param coordenaday1 párametro que guarda la coordenada y1.
+     * @param coordenadax3 párametro que guarda la coordenada x3.
+     * @param coordenaday3 párametro que guarda la coordenada y3.
      */
     public Triangulo(double coordenadax1, double coordenaday1, double coordenadax2,
             double coordenaday2, double coordenadax3, double coordenaday3) {
@@ -31,12 +24,7 @@ public class Triangulo extends Poligonos {
 
     /**
      *
-     * @return Este metodo halla el perimetro del triangulo según las
-     * coordenadas.
-     */
-    /**
-     *
-     * @return
+     * @return Método que devuelve el tipo de triangulo.
      */
     public String getTipoTriangulo() {
         return tipoTriangulo;
@@ -44,12 +32,18 @@ public class Triangulo extends Poligonos {
 
     /**
      *
-     * @param tipoTriangulo
+     * @param tipoTriangulo Método que guarda el tipo de triangulo según sus
+     * lados (distancia).
      */
     public void setTipoTriangulo(String tipoTriangulo) {
         this.tipoTriangulo = tipoTriangulo;
     }
 
+    /**
+     *
+     * @return Este método halla el perimetro del triangulo según las
+     * coordenadas.
+     */
     @Override
     public double hallarPerimetro() {
 
@@ -89,7 +83,5 @@ public class Triangulo extends Poligonos {
             tipoTriangulo = "No es un triangulo";
         }
         return tipoTriangulo;
-
     }
-
 }

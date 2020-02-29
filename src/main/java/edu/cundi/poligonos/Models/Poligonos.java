@@ -18,19 +18,19 @@ public class Poligonos {
      */
     private double coordenaday1;
     /**
-     * Atributo que guarda la coordenada x4
+     * Atributo que guarda la coordenada x2
      */
     private double coordenadax2;
     /**
-     * Atributo que guarda la coordenada x4
+     * Atributo que guarda la coordenada y2
      */
     private double coordenaday2;
     /**
-     * Atributo que guarda la coordenada x4
+     * Atributo que guarda la coordenada x3
      */
     private double coordenadax3;
     /**
-     * Atributo que guarda la coordenada x4
+     * Atributo que guarda la coordenada y3
      */
     private double coordenaday3;
     /**
@@ -50,13 +50,14 @@ public class Poligonos {
      * Constructor de la clase padre con los parametros en comun de las clases
      * hijas.
      *
-     * @param coordenadax1
-     * @param coordenaday1
-     * @param coordenadax2
-     * @param coordenaday2
-     * @param coordenadax3
-     * @param coordenaday3
+     * @param coordenadax1 párametro que guarda la coordenada x1.
+     * @param coordenadax2 párametro que guarda la coordenada x2.
+     * @param coordenaday2 párametro que guarda la coordenada y2.
+     * @param coordenaday1 párametro que guarda la coordenada y1.
+     * @param coordenadax3 párametro que guarda la coordenada x3.
+     * @param coordenaday3 párametro que guarda la coordenada y3.
      */
+    
     public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2,
             double coordenaday2, double coordenadax3, double coordenaday3) {
         this.coordenadax1 = coordenadax1;
@@ -77,7 +78,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax1
+     * @param coordenadax1 párametro que guarda la coordenada x1
      */
     public void setCoordenadax1(double coordenadax1) {
         this.coordenadax1 = coordenadax1;
@@ -85,7 +86,7 @@ public class Poligonos {
 
     /**
      *
-     * @return Método que devuelve la coordenada x4
+     * @return Método que devuelve la coordenada y1
      */
     public double getCoordenaday1() {
         return coordenaday1;
@@ -93,7 +94,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenaday1
+     * @param coordenaday1 párametro que guarda la coordenada y1
      */
     public void setCoordenaday1(double coordenaday1) {
         this.coordenaday1 = coordenaday1;
@@ -101,7 +102,7 @@ public class Poligonos {
 
     /**
      *
-     * @return Método que devuelve la coordenada x4
+     * @return Método que devuelve la coordenada x2
      */
     public double getCoordenadax2() {
         return coordenadax2;
@@ -109,7 +110,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax2
+     * @param coordenadax2 párametro que guarda la coordenada x2
      */
     public void setCoordenadax2(double coordenadax2) {
         this.coordenadax2 = coordenadax2;
@@ -117,7 +118,7 @@ public class Poligonos {
 
     /**
      *
-     * @return Método que devuelve la coordenada x4
+     * @return Método que devuelve la coordenada y2
      */
     public double getCoordenaday2() {
         return coordenaday2;
@@ -125,7 +126,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenaday2
+     * @param coordenaday2 párametro que guarda la coordenada y2
      */
     public void setCoordenaday2(double coordenaday2) {
         this.coordenaday2 = coordenaday2;
@@ -133,7 +134,7 @@ public class Poligonos {
 
     /**
      *
-     * @return Método que devuelve la coordenada x4
+     * @return Método que devuelve la coordenada x3
      */
     public double getCoordenadax3() {
         return coordenadax3;
@@ -141,7 +142,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax3
+     * @param coordenadax3 párametro que guarda la coordenada x3
      */
     public void setCoordenadax3(double coordenadax3) {
         this.coordenadax3 = coordenadax3;
@@ -149,7 +150,7 @@ public class Poligonos {
 
     /**
      *
-     * @return Método que devuelve la coordenada x4
+     * @return Método que devuelve la coordenada y3
      */
     public double getCoordenaday3() {
         return coordenaday3;
@@ -157,7 +158,7 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenaday3
+     * @param coordenaday3 párametro que guarda la coordenada y3
      */
     public void setCoordenaday3(double coordenaday3) {
         this.coordenaday3 = coordenaday3;
@@ -165,7 +166,7 @@ public class Poligonos {
 
     /**
      *
-     * @return étodo que devuelve la distancia que hay entre coordenadas x1-y1
+     * @return método que devuelve la distancia que hay entre coordenadas x1-y1
      * x2-y2
      */
     public double getDistanciaCoordenadasx1y1_x2y2() {
@@ -175,7 +176,8 @@ public class Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx1y1_x2y2
+     * @param distanciaCoordenadasx1y1_x2y2 párametro que guarda la distancia
+     * entre x1-y1, x2-y2
      */
     public void setDistanciaCoordenadasx1y1_x2y2(double distanciaCoordenadasx1y1_x2y2) {
         this.distanciaCoordenadasx1y1_x2y2 = distanciaCoordenadasx1y1_x2y2;
@@ -183,7 +185,7 @@ public class Poligonos {
 
     /**
      *
-     * @return étodo que devuelve la distancia que hay entre coordenadas x2-y2,
+     * @return Método que devuelve la distancia que hay entre coordenadas x2-y2,
      * x3-y3
      */
     public double getDistanciaCoordenadasx2y2_x3y3() {
@@ -193,7 +195,8 @@ public class Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx2y2_x3y3
+     * @param distanciaCoordenadasx2y2_x3y3 párametro que guarda la distancia
+     * entre x2-y2, x3-y3
      */
     public void setDistanciaCoordenadasx2y2_x3y3(double distanciaCoordenadasx2y2_x3y3) {
 
@@ -213,7 +216,8 @@ public class Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx1y1_x3y3
+     * @param distanciaCoordenadasx1y1_x3y3 párametro que guarda la distancia
+     * entre x1-y1, x3-y3
      */
     public void setDistanciaCoordenadasx1y1_x3y3(double distanciaCoordenadasx1y1_x3y3) {
 
