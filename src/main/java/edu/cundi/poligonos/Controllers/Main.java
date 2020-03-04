@@ -1,6 +1,6 @@
 package edu.cundi.poligonos.Controllers;
 
-import edu.cundi.poligonos.Views.Formulario;
+import edu.cundi.poligonos.Views.*;
 
 /**
  * Esta clase Ejecuta el programa(formulario)
@@ -26,3 +26,4 @@ public class Main {
         rc.vista.setVisible(true);
     }
 }
+

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.cundi.poligonos.Views;
 
 import java.awt.*;
@@ -6,7 +11,7 @@ import javax.swing.*;
 /**
  *
  * @author diego parra
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Formulario extends JFrame {
 

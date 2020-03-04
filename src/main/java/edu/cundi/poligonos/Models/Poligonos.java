@@ -5,9 +5,9 @@ package edu.cundi.poligonos.Models;
  * hijas.
  *
  * @author diego parra
- * @version 1.0.0
+ * @version 1.1.0
  */
-public class Poligonos {
+public abstract class Poligonos implements IOperaciones, IGraficos {
 
     /**
      * Atributo que guarda la coordenada x1
@@ -34,15 +34,15 @@ public class Poligonos {
      */
     private double coordenaday3;
     /**
-     * Atributo que guarda la distancia entre las coordenadas x3-y3, x4-y4
+     * Atributo que guarda la distancia entre las coordenadas x1-y1, x2-y2
      */
     private double distanciaCoordenadasx1y1_x2y2;
     /**
-     * Atributo que guarda la distancia entre las coordenadas x3-y3, x4-y4
+     * Atributo que guarda la distancia entre las coordenadas x2-y2, x3-y3
      */
     private double distanciaCoordenadasx2y2_x3y3;
     /**
-     * Atributo que guarda la distancia entre las coordenadas x3-y3, x4-y4
+     * Atributo que guarda la distancia entre las coordenadas x1-y1, x2-y4
      */
     private double distanciaCoordenadasx1y1_x3y3;
 
@@ -57,7 +57,6 @@ public class Poligonos {
      * @param coordenadax3 párametro que guarda la coordenada x3.
      * @param coordenaday3 párametro que guarda la coordenada y3.
      */
-    
     public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2,
             double coordenaday2, double coordenadax3, double coordenaday3) {
         this.coordenadax1 = coordenadax1;
@@ -78,26 +77,10 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax1 párametro que guarda la coordenada x1
-     */
-    public void setCoordenadax1(double coordenadax1) {
-        this.coordenadax1 = coordenadax1;
-    }
-
-    /**
-     *
      * @return Método que devuelve la coordenada y1
      */
     public double getCoordenaday1() {
         return coordenaday1;
-    }
-
-    /**
-     *
-     * @param coordenaday1 párametro que guarda la coordenada y1
-     */
-    public void setCoordenaday1(double coordenaday1) {
-        this.coordenaday1 = coordenaday1;
     }
 
     /**
@@ -110,26 +93,10 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax2 párametro que guarda la coordenada x2
-     */
-    public void setCoordenadax2(double coordenadax2) {
-        this.coordenadax2 = coordenadax2;
-    }
-
-    /**
-     *
      * @return Método que devuelve la coordenada y2
      */
     public double getCoordenaday2() {
         return coordenaday2;
-    }
-
-    /**
-     *
-     * @param coordenaday2 párametro que guarda la coordenada y2
-     */
-    public void setCoordenaday2(double coordenaday2) {
-        this.coordenaday2 = coordenaday2;
     }
 
     /**
@@ -142,26 +109,10 @@ public class Poligonos {
 
     /**
      *
-     * @param coordenadax3 párametro que guarda la coordenada x3
-     */
-    public void setCoordenadax3(double coordenadax3) {
-        this.coordenadax3 = coordenadax3;
-    }
-
-    /**
-     *
      * @return Método que devuelve la coordenada y3
      */
     public double getCoordenaday3() {
         return coordenaday3;
-    }
-
-    /**
-     *
-     * @param coordenaday3 párametro que guarda la coordenada y3
-     */
-    public void setCoordenaday3(double coordenaday3) {
-        this.coordenaday3 = coordenaday3;
     }
 
     /**
@@ -176,15 +127,6 @@ public class Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx1y1_x2y2 párametro que guarda la distancia
-     * entre x1-y1, x2-y2
-     */
-    public void setDistanciaCoordenadasx1y1_x2y2(double distanciaCoordenadasx1y1_x2y2) {
-        this.distanciaCoordenadasx1y1_x2y2 = distanciaCoordenadasx1y1_x2y2;
-    }
-
-    /**
-     *
      * @return Método que devuelve la distancia que hay entre coordenadas x2-y2,
      * x3-y3
      */
@@ -195,17 +137,7 @@ public class Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx2y2_x3y3 párametro que guarda la distancia
-     * entre x2-y2, x3-y3
-     */
-    public void setDistanciaCoordenadasx2y2_x3y3(double distanciaCoordenadasx2y2_x3y3) {
-
-        this.distanciaCoordenadasx2y2_x3y3 = distanciaCoordenadasx2y2_x3y3;
-    }
-
-    /**
-     *
-     * @return étodo que devuelve la distancia que hay entre coordenadas x1-y1,
+     * @return Método que devuelve la distancia que hay entre coordenadas x1-y1,
      * x3-y3
      */
     public double getDistanciaCoordenadasx1y1_x3y3() {
@@ -213,31 +145,4 @@ public class Poligonos {
         distanciaCoordenadasx1y1_x3y3 = Math.hypot(coordenadax3 - coordenadax1, coordenaday3 - coordenaday1);
         return distanciaCoordenadasx1y1_x3y3;
     }
-
-    /**
-     *
-     * @param distanciaCoordenadasx1y1_x3y3 párametro que guarda la distancia
-     * entre x1-y1, x3-y3
-     */
-    public void setDistanciaCoordenadasx1y1_x3y3(double distanciaCoordenadasx1y1_x3y3) {
-
-        this.distanciaCoordenadasx1y1_x3y3 = distanciaCoordenadasx1y1_x3y3;
-    }
-
-    /**
-     *
-     * @return método de la clase padre que halla el area.
-     */
-    public double hallarArea() {
-        return 0;
-    }
-
-    /**
-     *
-     * @return método de la clase padre que halla el perimetro.
-     */
-    public double hallarPerimetro() {
-        return 0;
-    }
-
 }

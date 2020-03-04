@@ -5,9 +5,9 @@ package edu.cundi.poligonos.Models;
  * atributos en común. para los otros dos poligonos cuadrado y rectangulo
  *
  * @author diego parra
- * @version 1.0.0
+ * @version 1.1.0
  */
-public class Cuadrilatero extends Poligonos {
+public abstract class Cuadrilatero extends Poligonos {
 
     /**
      * Atributo que guarda la coordenada x4
@@ -50,26 +50,10 @@ public class Cuadrilatero extends Poligonos {
 
     /**
      *
-     * @param coordenadax4 El parámetro define el valor de la coordenada x4
-     */
-    public void setCoordenadax4(double coordenadax4) {
-        this.coordenadax4 = coordenadax4;
-    }
-
-    /**
-     *
      * @return Método que devuelve la coordenada y4
      */
     public double getCoordenaday4() {
         return coordenaday4;
-    }
-
-    /**
-     *
-     * @param coordenaday4 El parámetro define el valor de la coordenada y4
-     */
-    public void setCoordenaday4(double coordenaday4) {
-        this.coordenaday4 = coordenaday4;
     }
 
     /**
@@ -84,30 +68,12 @@ public class Cuadrilatero extends Poligonos {
 
     /**
      *
-     * @param distanciaCoordenadasx3y3_x4y4 el párametro define la distancia
-     * entre coordenadas x3-y3, x4-y4
-     */
-    public void setDistanciaCoordenadasx3y3_x4y4(double distanciaCoordenadasx3y3_x4y4) {
-        this.distanciaCoordenadasx3y3_x4y4 = distanciaCoordenadasx3y3_x4y4;
-    }
-
-    /**
-     *
      * @return Método que devuelve la distancia que hay entre coordenadas x4-y4,
      * x1-y1
      */
     public double getDistanciaCoordenadasx4y4_x1y1() {
         distanciaCoordenadasx4y4_x1y1 = Math.hypot(getCoordenadax1() - coordenadax4, getCoordenaday1() - coordenaday4);
         return distanciaCoordenadasx4y4_x1y1;
-    }
-
-    /**
-     *
-     * @param distanciaCoordenadasx4y4_x1y1 el párametro define la distancia
-     * entre coordenadas x4-y4, x1-y1
-     */
-    public void setDistanciaCoordenadasx4y4_x1y1(double distanciaCoordenadasx4y4_x1y1) {
-        this.distanciaCoordenadasx4y4_x1y1 = distanciaCoordenadasx4y4_x1y1;
     }
 
     /**
@@ -120,12 +86,4 @@ public class Cuadrilatero extends Poligonos {
         return distanciaCoordenadasx2y2_x4y4;
     }
 
-    /**
-     *
-     * @param distanciaCoordenadasx2y2_x4y4 el párametro define la distancia
-     * entre coordenadas x2-y2, x4-y4
-     */
-    public void setDistanciaCoordenadasx2y2_x4y4(double distanciaCoordenadasx2y2_x4y4) {
-        this.distanciaCoordenadasx2y2_x4y4 = distanciaCoordenadasx2y2_x4y4;
-    }
 }

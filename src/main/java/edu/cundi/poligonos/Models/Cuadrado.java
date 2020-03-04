@@ -1,11 +1,13 @@
 package edu.cundi.poligonos.Models;
 
+import java.awt.Graphics;
+
 /**
  * Esta subclase hereda de la clase base Cuadrilatero que a su vez hereda de la
  * clase Padre Poligonos, tiene los metodos y atributos en común.
  *
  * @author diego parra
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class Cuadrado extends Cuadrilatero {
 
@@ -42,6 +44,16 @@ public class Cuadrado extends Cuadrilatero {
     @Override
     public double hallarArea() {
         return Math.pow(getDistanciaCoordenadasx1y1_x2y2(), 2);
+    }
+
+    @Override
+    public void pintarPoligono(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void color(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

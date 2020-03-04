@@ -1,5 +1,14 @@
 package edu.cundi.poligonos.Models;
 
+import java.awt.Graphics;
+
+/**
+ * Esta clase hereda de la clase Padre Poligonos, el cual tiene los metodos y
+ * atributos en común.
+ *
+ * @author diego parra
+ * @version 1.1.0
+ */
 public class Triangulo extends Poligonos {
 
     /**
@@ -28,15 +37,6 @@ public class Triangulo extends Poligonos {
      */
     public String getTipoTriangulo() {
         return tipoTriangulo;
-    }
-
-    /**
-     *
-     * @param tipoTriangulo Método que guarda el tipo de triangulo según sus
-     * lados (distancia).
-     */
-    public void setTipoTriangulo(String tipoTriangulo) {
-        this.tipoTriangulo = tipoTriangulo;
     }
 
     /**
@@ -83,5 +83,15 @@ public class Triangulo extends Poligonos {
             tipoTriangulo = "No es un triangulo";
         }
         return tipoTriangulo;
+    }
+
+    @Override
+    public void pintarPoligono(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void color(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

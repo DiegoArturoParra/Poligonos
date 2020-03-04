@@ -147,6 +147,11 @@ public class RegistrarCoordenadas implements ActionListener {
                 }
             }
         }
+        
+        if (e.getSource() == vista.btnPintar) {
+            
+        }
+        
         /**
          * Ingresa al boton limpiar.
          */
