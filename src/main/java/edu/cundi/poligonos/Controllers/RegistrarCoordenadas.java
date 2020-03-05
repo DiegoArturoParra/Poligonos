@@ -16,18 +16,30 @@ public class RegistrarCoordenadas implements ActionListener {
     /**
      * se instancia un objeto de la clase formulario.
      */
-    Formulario vista;
+    private Formulario vista;
+    private Poligonos figura;
+    FormularioGrafico grafico;
 
     /**
+     * Constructor que recibe el parametro como objeto De la clase formulario y
+     * formularioGrafico
      *
-     * @param vista Constructor que recibe el parametro como objeto De la clase
-     * Formulario
+     * @param vista párametro como objeto de la Formulario.
+     * @param grafico párametro como objeto de la clase FormularioGrafico
      */
-    public RegistrarCoordenadas(Formulario vista) {
+    public RegistrarCoordenadas(Formulario vista, FormularioGrafico grafico) {
         this.vista = vista;
-        vista.btnPintar.addActionListener(this);
-        vista.btnLimpiar.addActionListener(this);
-        vista.btnCalcular.addActionListener(this);
+        this.grafico = grafico;
+        this.vista.btnPintar.addActionListener(this);
+        this.vista.btnLimpiar.addActionListener(this);
+        this.vista.btnCalcular.addActionListener(this);
+    }
+
+    /**
+     * Método que inicia la ventana principal
+     */
+    public void iniciar() {
+        vista.setVisible(true);
     }
 
     /**
@@ -39,12 +51,13 @@ public class RegistrarCoordenadas implements ActionListener {
      * @param y2 párametro que recibe la coordenada y2
      * @param x3 párametro que recibe la coordenada x3
      * @param y3 párametro que recibe la coordenada y3
+     * @param color párametro que recibe el color.
      */
-    public void registroTriangulo(double x1, double y1, double x2, double y2, double x3, double y3) {
-        Triangulo t1 = new Triangulo(x1, y1, x2, y2, x3, y3);
-        vista.inputArea.setText(Double.toString(t1.hallarArea()));
-        vista.inputPerimetro.setText(Double.toString(t1.hallarPerimetro()));
-        vista.inputTipoTriangulo.setText(t1.hallarTipoTriangulo());
+    public void registroTriangulo(double x1, double y1, double x2, double y2, double x3, double y3, String color) {
+        figura = new Triangulo(x1, y1, x2, y2, x3, y3, color);
+        vista.inputArea.setText(Double.toString(figura.hallarArea()));
+        vista.inputPerimetro.setText(Double.toString(figura.hallarPerimetro()));
+        vista.inputTipoTriangulo.setText(((Triangulo) figura).hallarTipoTriangulo());
     }
 
     /**
@@ -59,14 +72,15 @@ public class RegistrarCoordenadas implements ActionListener {
      * @param y3 párametro que recibe la coordenada y3
      * @param x4 párametro que recibe la coordenada x4
      * @param y4 párametro que recibe la coordenada y4
+     * @param color párametro que recibe el color.
      */
-    public void registroCuadrilatero(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
+    public void registroCuadrilatero(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4, String color) {
         if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
-            Cuadrado c1 = new Cuadrado(x1, y1, x2, y2, x3, y3, x4, y4);
+            Cuadrado c1 = new Cuadrado(x1, y1, x2, y2, x3, y3, x4, y4, color);
             vista.inputArea.setText(Double.toString(c1.hallarArea()));
             vista.inputPerimetro.setText(Double.toString(c1.hallarPerimetro()));
         } else if (vista.listaFiguras.getSelectedItem().equals("Rectangulo")) {
-            Rectangulo r1 = new Rectangulo(x1, y1, x2, y2, x3, y3, x4, y4);
+            Rectangulo r1 = new Rectangulo(x1, y1, x2, y2, x3, y3, x4, y4, color);
             vista.inputArea.setText(Double.toString(r1.hallarArea()));
             vista.inputPerimetro.setText(Double.toString(r1.hallarPerimetro()));
         }
@@ -97,21 +111,22 @@ public class RegistrarCoordenadas implements ActionListener {
         if (e.getSource() == vista.btnCalcular) {
 
             if (vista.listaFiguras.getSelectedItem().equals("Triangulo")) {
-                try {
-                    /**
-                     * Se invoca el método registroTriangulo para registrar las
-                     * coordenadas del triangulo.
-                     */
-                    registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                            Double.parseDouble(vista.inputCoordenaday3.getText()));
+//                try {
+                /**
+                 * Se invoca el método registroTriangulo para registrar las
+                 * coordenadas del triangulo.
+                 */
+                registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
+                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
+                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
+                        Double.parseDouble(vista.inputCoordenaday3.getText()), vista.listaFiguras.getSelectedItem().toString());
 
-                } catch (NumberFormatException e1) {
-                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados. " + e1);
-                    limpiar();
-                }
+//                } catch (NumberFormatException e1) {
+//                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
+//                    System.out.println("Datos no tomados. " + e1);
+//                    limpiar();
+//                }
+                
 
             } else if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
                 try {
@@ -123,7 +138,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
                             Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
                             Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()));
+                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaFiguras.getSelectedItem().toString());
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Datos no tomados. " + e1);
@@ -139,7 +154,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
                             Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
                             Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()));
+                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaFiguras.getSelectedItem().toString());
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Datos no tomados. " + e1);
@@ -147,11 +162,11 @@ public class RegistrarCoordenadas implements ActionListener {
                 }
             }
         }
-        
+
         if (e.getSource() == vista.btnPintar) {
-            
+            grafico.setVisible(true);
         }
-        
+
         /**
          * Ingresa al boton limpiar.
          */
@@ -161,5 +176,9 @@ public class RegistrarCoordenadas implements ActionListener {
              */
             limpiar();
         }
+    }
+
+    public void graficar() {
+        ((Triangulo) figura).pintarPoligono(grafico.plano.getGraphics());
     }
 }

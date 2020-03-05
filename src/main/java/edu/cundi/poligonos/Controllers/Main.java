@@ -22,8 +22,9 @@ public class Main {
          * ejecutarlo.
          */
         Formulario ventana = new Formulario();
-        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana);
-        rc.vista.setVisible(true);
+        FormularioGrafico graficar = new FormularioGrafico();
+        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana,graficar);
+        rc.iniciar();
     }
 }
 

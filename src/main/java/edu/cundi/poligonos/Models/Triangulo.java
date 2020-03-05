@@ -1,6 +1,6 @@
 package edu.cundi.poligonos.Models;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  * Esta clase hereda de la clase Padre Poligonos, el cual tiene los metodos y
@@ -25,10 +25,14 @@ public class Triangulo extends Poligonos {
      * @param coordenaday1 párametro que guarda la coordenada y1.
      * @param coordenadax3 párametro que guarda la coordenada x3.
      * @param coordenaday3 párametro que guarda la coordenada y3.
+     * @param color párametro que recibe el color.
      */
-    public Triangulo(double coordenadax1, double coordenaday1, double coordenadax2,
-            double coordenaday2, double coordenadax3, double coordenaday3) {
-        super(coordenadax1, coordenaday1, coordenadax2, coordenaday2, coordenadax3, coordenaday3);
+    public Triangulo(double coordenadax1, double coordenaday1, double coordenadax2, double coordenaday2,
+            double coordenadax3, double coordenaday3, String color) {
+        super(coordenadax1, coordenaday1, coordenadax2, coordenaday2, coordenadax3, coordenaday3, color);
+    }
+
+    public Triangulo() {
     }
 
     /**
@@ -87,11 +91,15 @@ public class Triangulo extends Poligonos {
 
     @Override
     public void pintarPoligono(Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pintarColor(g);
+        int coordenadasX[] = {(int) getCoordenadax1(), (int) getCoordenadax2(), (int) getCoordenadax3()};
+        int coordenadasY[] = {(int) getCoordenaday1(), (int) getCoordenaday2(), (int) getCoordenaday3()};
+        Polygon p = new Polygon(coordenadasX, coordenadasY, 3);
+        g.fillPolygon(p);
     }
 
     @Override
-    public void color(Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pintarColor(Graphics g) {
+        g.setColor(Color.getColor(getColor()));
     }
 }

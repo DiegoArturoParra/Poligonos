@@ -10,6 +10,15 @@ package edu.cundi.poligonos.Models;
 public abstract class Poligonos implements IOperaciones, IGraficos {
 
     /**
+     * atributo que se toma contador para que el id del poligono sea
+     * autonúmerico.
+     */
+    public static int id = 1;
+    /**
+     * atributo que guarda el id del poligono.
+     */
+    private int idPoligono;
+    /**
      * Atributo que guarda la coordenada x1
      */
     private double coordenadax1;
@@ -47,6 +56,15 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
     private double distanciaCoordenadasx1y1_x3y3;
 
     /**
+     * Stributo que guarda el color de la figura.
+     */
+    private String color;
+
+    // Constructor por defecto.
+    public Poligonos() {
+    }
+
+    /**
      * Constructor de la clase padre con los parametros en comun de las clases
      * hijas.
      *
@@ -56,15 +74,18 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
      * @param coordenaday1 párametro que guarda la coordenada y1.
      * @param coordenadax3 párametro que guarda la coordenada x3.
      * @param coordenaday3 párametro que guarda la coordenada y3.
+     * @param color párametro que guarda el color del poligono.
      */
-    public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2,
-            double coordenaday2, double coordenadax3, double coordenaday3) {
+
+    public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2, double coordenaday2, double coordenadax3, double coordenaday3, String color) {
         this.coordenadax1 = coordenadax1;
         this.coordenaday1 = coordenaday1;
         this.coordenadax2 = coordenadax2;
         this.coordenaday2 = coordenaday2;
         this.coordenadax3 = coordenadax3;
         this.coordenaday3 = coordenaday3;
+        this.color = color;
+        this.idPoligono = Poligonos.id++;
     }
 
     /**
@@ -144,5 +165,13 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
 
         distanciaCoordenadasx1y1_x3y3 = Math.hypot(coordenadax3 - coordenadax1, coordenaday3 - coordenaday1);
         return distanciaCoordenadasx1y1_x3y3;
+    }
+
+    /**
+     *
+     * @return retorna el color del poligono.
+     */
+    public String getColor() {
+        return color;
     }
 }

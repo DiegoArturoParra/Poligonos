@@ -33,9 +33,21 @@ public abstract class Cuadrilatero extends Poligonos {
     /*
     Constructor con parametros sobrecargados que hereda de la clase Poligonos.
      */
+    /**
+     *
+     * @param coordenaday1 párametro que recibe la coordenada y1
+     * @param coordenadax1 párametro que recibe la coordenada x1
+     * @param coordenadax2 párametro que recibe la coordenada x2
+     * @param coordenaday2 párametro que recibe la coordenada y2
+     * @param coordenadax3 párametro que recibe la coordenada x3
+     * @param coordenaday3 párametro que recibe la coordenada y3
+     * @param coordenadax4 párametro que recibe la coordenada x4
+     * @param coordenaday4 párametro que recibe la coordenada y4
+     * @param color párametro que recibe el color.
+     */
     public Cuadrilatero(double coordenadax1, double coordenaday1, double coordenadax2, double coordenaday2,
-            double coordenadax3, double coordenaday3, double coordenadax4, double coordenaday4) {
-        super(coordenadax1, coordenaday1, coordenadax2, coordenaday2, coordenadax3, coordenaday3);
+            double coordenadax3, double coordenaday3, double coordenadax4, double coordenaday4, String color) {
+        super(coordenadax1, coordenaday1, coordenadax2, coordenaday2, coordenadax3, coordenaday3, color);
         this.coordenadax4 = coordenadax4;
         this.coordenaday4 = coordenaday4;
     }

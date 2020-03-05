@@ -12,5 +12,5 @@ public interface IGraficos {
 
     public void pintarPoligono(Graphics g);
 
-    public void color(Graphics g);
+    public void pintarColor(Graphics g);
 }

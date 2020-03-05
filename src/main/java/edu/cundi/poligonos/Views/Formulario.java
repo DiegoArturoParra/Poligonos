@@ -16,6 +16,7 @@ import javax.swing.*;
 public class Formulario extends JFrame {
 
     public final JLabel labelTipoPoligono = new JLabel("Escoja Su Figura:");
+    public final JLabel labelTipoColor = new JLabel("Escoja Su Color:");
     public final JLabel labelCoordenadax1 = new JLabel("Coordenada x1");
     public JTextField inputCoordenadax1 = new JTextField();
     public final JLabel labelCoordenaday1 = new JLabel("Coordenada y1");
@@ -39,7 +40,8 @@ public class Formulario extends JFrame {
     public final JLabel labelPerimetro = new JLabel("Perimetro");
     public JTextField inputPerimetro = new JTextField();
     public final JComboBox listaFiguras = new JComboBox();
-    public final JButton btnPintar = new JButton("Pintar");
+    public final JComboBox listaColores = new JComboBox();
+    public final JButton btnPintar = new JButton("Pintar Plano Cartesiano.");
     public final JButton btnLimpiar = new JButton("Limpiar");
     public final JButton btnCalcular = new JButton("Calcular");
 
@@ -47,15 +49,23 @@ public class Formulario extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setTitle("Poligonos Triangulo, Cuadrado, Rectangulo");
-        this.setSize(300, 400);
+        this.setSize(400, 500);
         this.setLocationRelativeTo(null);
-        setLayout(new GridLayout(14, 7, 10, 5));
+        setLayout(new GridLayout(15, 7, 10, 5));
 
         listaFiguras.addItem("Cuadrado");
         listaFiguras.addItem("Rectangulo");
         listaFiguras.addItem("Triangulo");
+        listaColores.addItem("RED");
+        listaColores.addItem("GREEN");
+        listaColores.addItem("BLUE");
+        listaColores.addItem("ORANGE");
+        listaColores.addItem("YELLOW");
+        listaColores.addItem("CYAN");
         add(labelTipoPoligono);
         add(listaFiguras);
+        add(labelTipoColor);
+        add(listaColores);
         add(labelCoordenadax1);
         add(inputCoordenadax1);
         add(labelCoordenaday1);
