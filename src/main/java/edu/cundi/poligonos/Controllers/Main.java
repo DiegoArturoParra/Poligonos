@@ -22,8 +22,7 @@ public class Main {
          * ejecutarlo.
          */
         Formulario ventana = new Formulario();
-        FormularioGrafico graficar = new FormularioGrafico();
-        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana,graficar);
+        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana);
         rc.iniciar();
     }
 }

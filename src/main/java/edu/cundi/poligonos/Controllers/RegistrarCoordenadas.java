@@ -18,18 +18,18 @@ public class RegistrarCoordenadas implements ActionListener {
      */
     private Formulario vista;
     private Poligonos figura;
-    FormularioGrafico grafico;
+    private GraficarCoordenadas gC;
+    private FormularioGrafico ventana;
 
     /**
      * Constructor que recibe el parametro como objeto De la clase formulario y
      * formularioGrafico
      *
      * @param vista párametro como objeto de la Formulario.
-     * @param grafico párametro como objeto de la clase FormularioGrafico
+     *
      */
-    public RegistrarCoordenadas(Formulario vista, FormularioGrafico grafico) {
+    public RegistrarCoordenadas(Formulario vista) {
         this.vista = vista;
-        this.grafico = grafico;
         this.vista.btnPintar.addActionListener(this);
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.btnCalcular.addActionListener(this);
@@ -126,8 +126,6 @@ public class RegistrarCoordenadas implements ActionListener {
 //                    System.out.println("Datos no tomados. " + e1);
 //                    limpiar();
 //                }
-                
-
             } else if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
                 try {
                     /**
@@ -164,7 +162,9 @@ public class RegistrarCoordenadas implements ActionListener {
         }
 
         if (e.getSource() == vista.btnPintar) {
-            grafico.setVisible(true);
+            ventana = new FormularioGrafico();
+            gC = new GraficarCoordenadas(ventana);
+            gC.iniciar();
         }
 
         /**
@@ -176,9 +176,5 @@ public class RegistrarCoordenadas implements ActionListener {
              */
             limpiar();
         }
-    }
-
-    public void graficar() {
-        ((Triangulo) figura).pintarPoligono(grafico.plano.getGraphics());
     }
 }

@@ -41,7 +41,7 @@ public class Formulario extends JFrame {
     public JTextField inputPerimetro = new JTextField();
     public final JComboBox listaFiguras = new JComboBox();
     public final JComboBox listaColores = new JComboBox();
-    public final JButton btnPintar = new JButton("Pintar Plano Cartesiano.");
+    public final JButton btnPintar = new JButton("Pintar Plano Cartesiano");
     public final JButton btnLimpiar = new JButton("Limpiar");
     public final JButton btnCalcular = new JButton("Calcular");
 
@@ -50,7 +50,7 @@ public class Formulario extends JFrame {
         setVisible(true);
         setTitle("Poligonos Triangulo, Cuadrado, Rectangulo");
         this.setSize(400, 500);
-        this.setLocationRelativeTo(null);
+        this.setLocation(200, 170);
         setLayout(new GridLayout(15, 7, 10, 5));
 
         listaFiguras.addItem("Cuadrado");
