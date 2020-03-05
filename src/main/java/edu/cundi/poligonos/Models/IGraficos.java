@@ -11,6 +11,4 @@ import java.awt.Graphics;
 public interface IGraficos {
 
     public void pintarPoligono(Graphics g);
-
-    public void pintarColor(Graphics g);
 }

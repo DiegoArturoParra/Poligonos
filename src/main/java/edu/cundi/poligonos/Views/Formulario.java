@@ -41,7 +41,7 @@ public class Formulario extends JFrame {
     public JTextField inputPerimetro = new JTextField();
     public final JComboBox listaFiguras = new JComboBox();
     public final JComboBox listaColores = new JComboBox();
-    public final JButton btnPintar = new JButton("Pintar Plano Cartesiano");
+    public final JButton btnGuardar = new JButton("Guardar Poligono");
     public final JButton btnLimpiar = new JButton("Limpiar");
     public final JButton btnCalcular = new JButton("Calcular");
 
@@ -56,12 +56,12 @@ public class Formulario extends JFrame {
         listaFiguras.addItem("Cuadrado");
         listaFiguras.addItem("Rectangulo");
         listaFiguras.addItem("Triangulo");
-        listaColores.addItem("RED");
-        listaColores.addItem("GREEN");
-        listaColores.addItem("BLUE");
-        listaColores.addItem("ORANGE");
-        listaColores.addItem("YELLOW");
-        listaColores.addItem("CYAN");
+        listaColores.addItem("Rojo");
+        listaColores.addItem("Verde");
+        listaColores.addItem("Azul");
+        listaColores.addItem("Naranja");
+        listaColores.addItem("Amarillo");
+        listaColores.addItem("Cyan");
         add(labelTipoPoligono);
         add(listaFiguras);
         add(labelTipoColor);
@@ -91,7 +91,7 @@ public class Formulario extends JFrame {
         add(labelPerimetro);
         add(inputPerimetro);
         inputPerimetro.setFocusable(false);
-        add(btnPintar);
+        add(btnGuardar);
         add(btnLimpiar);
         add(btnCalcular);
     }

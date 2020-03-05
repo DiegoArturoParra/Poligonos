@@ -1,5 +1,6 @@
 package edu.cundi.poligonos.Controllers;
 
+import edu.cundi.poligonos.Models.*;
 import edu.cundi.poligonos.Views.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,9 +12,11 @@ import java.awt.event.*;
  */
 public class GraficarCoordenadas implements ActionListener {
 
-    FormularioGrafico grafico;
+    private FormularioGrafico grafico;
+    private Poligonos figura;
 
-    public GraficarCoordenadas(FormularioGrafico grafico) {
+    public GraficarCoordenadas(FormularioGrafico grafico, Poligonos figura) {
+        this.figura = figura;
         this.grafico = grafico;
         this.grafico.add(grafico.btnGraficar, BorderLayout.SOUTH);
         this.grafico.add(grafico.plano, BorderLayout.CENTER);
@@ -22,11 +25,14 @@ public class GraficarCoordenadas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        graficar();
     }
 
     public void iniciar() {
         grafico.setVisible(true);
     }
 
+    public void graficar() {
+     ((Triangulo)figura).pintarPoligono(grafico.plano.getGraphics());
+    }
 }

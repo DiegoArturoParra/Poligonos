@@ -30,7 +30,7 @@ public class RegistrarCoordenadas implements ActionListener {
      */
     public RegistrarCoordenadas(Formulario vista) {
         this.vista = vista;
-        this.vista.btnPintar.addActionListener(this);
+        this.vista.btnGuardar.addActionListener(this);
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.btnCalcular.addActionListener(this);
     }
@@ -58,6 +58,9 @@ public class RegistrarCoordenadas implements ActionListener {
         vista.inputArea.setText(Double.toString(figura.hallarArea()));
         vista.inputPerimetro.setText(Double.toString(figura.hallarPerimetro()));
         vista.inputTipoTriangulo.setText(((Triangulo) figura).hallarTipoTriangulo());
+        ventana = new FormularioGrafico();
+        gC = new GraficarCoordenadas(ventana, figura);
+        gC.iniciar();
     }
 
     /**
@@ -119,7 +122,7 @@ public class RegistrarCoordenadas implements ActionListener {
                 registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
                         Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
                         Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                        Double.parseDouble(vista.inputCoordenaday3.getText()), vista.listaFiguras.getSelectedItem().toString());
+                        Double.parseDouble(vista.inputCoordenaday3.getText()), vista.listaColores.getSelectedItem().toString());
 
 //                } catch (NumberFormatException e1) {
 //                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -136,7 +139,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
                             Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
                             Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaFiguras.getSelectedItem().toString());
+                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaColores.getSelectedItem().toString());
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Datos no tomados. " + e1);
@@ -152,7 +155,7 @@ public class RegistrarCoordenadas implements ActionListener {
                             Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
                             Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
                             Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaFiguras.getSelectedItem().toString());
+                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaColores.getSelectedItem().toString());
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Datos no tomados. " + e1);
@@ -161,10 +164,8 @@ public class RegistrarCoordenadas implements ActionListener {
             }
         }
 
-        if (e.getSource() == vista.btnPintar) {
-            ventana = new FormularioGrafico();
-            gC = new GraficarCoordenadas(ventana);
-            gC.iniciar();
+        if (e.getSource() == vista.btnGuardar) {
+
         }
 
         /**

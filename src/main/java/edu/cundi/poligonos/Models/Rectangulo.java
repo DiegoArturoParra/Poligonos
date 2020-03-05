@@ -1,6 +1,7 @@
 package edu.cundi.poligonos.Models;
 
 import java.awt.*;
+
 /**
  * Esta subclase de la clase base Cuadrilatero que a su vez hereda de la clase
  * Padre Poligonos, tiene los metodos y atributos en común.
@@ -48,11 +49,6 @@ public class Rectangulo extends Cuadrilatero {
 
     @Override
     public void pintarPoligono(Graphics g) {
-       
-    }
 
-    @Override
-    public void pintarColor(Graphics g) {
-        g.setColor(Color.getColor(getColor()));
     }
 }

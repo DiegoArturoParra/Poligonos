@@ -49,12 +49,6 @@ public class Cuadrado extends Cuadrilatero {
 
     @Override
     public void pintarPoligono(Graphics g) {
-        
+        pintarColor(g);
     }
-
-    @Override
-    public void pintarColor(Graphics g) {
-        g.setColor(Color.getColor(getColor()));
-    }
-
 }

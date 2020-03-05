@@ -1,5 +1,8 @@
 package edu.cundi.poligonos.Models;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  * Esta clase es la Padre tiene los atributos y metodos en común de las clases
  * hijas.
@@ -58,7 +61,7 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
     /**
      * Stributo que guarda el color de la figura.
      */
-    private String color;
+    private String colorPoligono;
 
     // Constructor por defecto.
     public Poligonos() {
@@ -74,17 +77,17 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
      * @param coordenaday1 párametro que guarda la coordenada y1.
      * @param coordenadax3 párametro que guarda la coordenada x3.
      * @param coordenaday3 párametro que guarda la coordenada y3.
-     * @param color párametro que guarda el color del poligono.
+     * @param colorPoligono párametro que guarda el color del poligono.
      */
-
-    public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2, double coordenaday2, double coordenadax3, double coordenaday3, String color) {
+    public Poligonos(double coordenadax1, double coordenaday1, double coordenadax2, double coordenaday2,
+            double coordenadax3, double coordenaday3, String colorPoligono) {
         this.coordenadax1 = coordenadax1;
         this.coordenaday1 = coordenaday1;
         this.coordenadax2 = coordenadax2;
         this.coordenaday2 = coordenaday2;
         this.coordenadax3 = coordenadax3;
         this.coordenaday3 = coordenaday3;
-        this.color = color;
+        this.colorPoligono = colorPoligono;
         this.idPoligono = Poligonos.id++;
     }
 
@@ -169,9 +172,39 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
 
     /**
      *
-     * @return retorna el color del poligono.
+     * @return retorna el color del poligono
      */
-    public String getColor() {
-        return color;
+    public String getColorPoligono() {
+        return colorPoligono;
+    }
+
+    /**
+     *
+     * @return Método que valida que color desea el usuario en el poligono.
+     */
+    public Color validarColor() {
+        if (getColorPoligono().equalsIgnoreCase("Rojo")) {
+            return Color.red;
+        } else if (getColorPoligono().equalsIgnoreCase("Verde")) {
+            return Color.green;
+        } else if (getColorPoligono().equalsIgnoreCase("Azul")) {
+            return Color.blue;
+        } else if (getColorPoligono().equalsIgnoreCase("Naranja")) {
+            return Color.orange;
+        } else if (getColorPoligono().equalsIgnoreCase("Amarillo")) {
+            return Color.yellow;
+        } else if (getColorPoligono().equalsIgnoreCase("Cyan")) {
+            return Color.cyan;
+        }
+        return null;
+    }
+
+    /**
+     *Método que pinta el color del poligono.
+     * @param g parámetro como objeto de la clase Graphics para poder agregar el color.
+     */
+    public void pintarColor(Graphics g) {
+        Color c = validarColor();
+        g.setColor(c);
     }
 }

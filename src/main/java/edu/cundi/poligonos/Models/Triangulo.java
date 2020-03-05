@@ -32,9 +32,6 @@ public class Triangulo extends Poligonos {
         super(coordenadax1, coordenaday1, coordenadax2, coordenaday2, coordenadax3, coordenaday3, color);
     }
 
-    public Triangulo() {
-    }
-
     /**
      *
      * @return Método que devuelve el tipo de triangulo.
@@ -96,10 +93,5 @@ public class Triangulo extends Poligonos {
         int coordenadasY[] = {(int) getCoordenaday1(), (int) getCoordenaday2(), (int) getCoordenaday3()};
         Polygon p = new Polygon(coordenadasX, coordenadasY, 3);
         g.fillPolygon(p);
-    }
-
-    @Override
-    public void pintarColor(Graphics g) {
-        g.setColor(Color.getColor(getColor()));
-    }
+    }    
 }
