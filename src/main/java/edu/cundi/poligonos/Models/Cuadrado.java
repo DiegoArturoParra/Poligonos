@@ -60,4 +60,5 @@ public class Cuadrado extends Cuadrilatero {
         pintarColor(g);
         g.fillRect(500, 400, (int) getDistanciaCoordenadasx1y1_x2y2(), (int) getDistanciaCoordenadasx2y2_x4y4());
     }
+    
 }

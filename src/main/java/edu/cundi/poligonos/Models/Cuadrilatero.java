@@ -98,5 +98,17 @@ public abstract class Cuadrilatero extends Poligonos {
         return distanciaCoordenadasx2y2_x4y4;
     }
 
-    
+    /**
+     *
+     * @return imprime los datos del cuadrilatero si es cuadrado o rectangulo.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString()).append("\nCuadrilatero{coordenadax4=").append(coordenadax4);
+        sb.append(", coordenaday4=").append(coordenaday4);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

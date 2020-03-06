@@ -55,7 +55,7 @@ public class Triangulo extends Poligonos {
      */
     @Override
     public double hallarPerimetro() {
-        
+
         setPerimetro(getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx1y1_x3y3() + getDistanciaCoordenadasx2y2_x3y3());
         return getPerimetro();
     }
@@ -78,7 +78,7 @@ public class Triangulo extends Poligonos {
      * hizo con las distancias.
      */
     public String hallarTipoTriangulo() {
-        
+
         if (getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx1y1_x3y3()
                 && getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx2y2_x3y3()) {
             tipoTriangulo = "Equilatero";
@@ -110,5 +110,17 @@ public class Triangulo extends Poligonos {
         Polygon p = new Polygon(coordenadasX, coordenadasY, 3);
         g.fillPolygon(p);
     }
-    
+
+    /**
+     * 
+     * @return imprime los datos del triangulo.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString()).append("\nTriangulo{tipoTriangulo=").append(tipoTriangulo);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

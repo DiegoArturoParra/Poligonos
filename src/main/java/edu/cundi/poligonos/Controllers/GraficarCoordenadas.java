@@ -64,7 +64,7 @@ public class GraficarCoordenadas implements ActionListener {
     }
 
     /**
-     * Metodo para utilizar el boton.
+     * Método para utilizar el boton.
      *
      * @param e párametro que utiliza los botones.
      */

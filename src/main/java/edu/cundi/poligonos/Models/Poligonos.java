@@ -254,15 +254,15 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Poligonos{idPoligono=").append(idPoligono);
-        sb.append(", coordenadax1=").append(coordenadax1);
-        sb.append(", coordenaday1=").append(coordenaday1);
-        sb.append(", coordenadax2=").append(coordenadax2);
-        sb.append(", coordenaday2=").append(coordenaday2);
-        sb.append(", coordenadax3=").append(coordenadax3);
-        sb.append(", coordenaday3=").append(coordenaday3);
-        sb.append(", colorPoligono=").append(colorPoligono);
-        sb.append(", area=").append(area);
-        sb.append(", perimetro=").append(perimetro);
+        sb.append("\n coordenadax1=").append(coordenadax1);
+        sb.append("\n coordenaday1=").append(coordenaday1);
+        sb.append("\n coordenadax2=").append(coordenadax2);
+        sb.append("\n coordenaday2=").append(coordenaday2);
+        sb.append("\n coordenadax3=").append(coordenadax3);
+        sb.append("\n coordenaday3=").append(coordenaday3);
+        sb.append("\n colorPoligono=").append(colorPoligono);
+        sb.append("\n area=").append(area);
+        sb.append("\n perimetro=").append(perimetro);
         sb.append('}');
         return sb.toString();
     }
