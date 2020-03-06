@@ -3,22 +3,32 @@ package edu.cundi.poligonos.Controllers;
 import edu.cundi.poligonos.Models.*;
 import edu.cundi.poligonos.Views.*;
 import java.awt.event.*;
-import javax.swing.JOptionPane;
+import java.util.List;
+import javax.swing.*;
 
 /**
- * Esta clase registra lo del formulario.
+ * Esta clase registra las coordenadas en el formulario.
  *
  * @author diego parra
- * @version 1.0.0
+ * @version 1.1.0
  */
 public class RegistrarCoordenadas implements ActionListener {
 
     /**
-     * se instancia un objeto de la clase formulario.
+     * Se instancia un objeto de la clase formulario.
      */
     private Formulario vista;
-    private Poligonos figura;
+    /**
+     * Se instancia una lista de la Interface Ioperaciones.
+     */
+    private List<IOperaciones> listaPoligonos;
+    /**
+     * Se instancia un objeto de la clase GraficarCoordenadas.
+     */
     private GraficarCoordenadas gC;
+    /**
+     * Se instancia un objeto de la clase FormularioGrafico.
+     */
     private FormularioGrafico ventana;
 
     /**
@@ -26,10 +36,13 @@ public class RegistrarCoordenadas implements ActionListener {
      * formularioGrafico
      *
      * @param vista párametro como objeto de la Formulario.
+     * @param listaPoligonos párametro como una lista de la interface
+     * IOPeraciones
      *
      */
-    public RegistrarCoordenadas(Formulario vista) {
+    public RegistrarCoordenadas(Formulario vista, List<IOperaciones> listaPoligonos) {
         this.vista = vista;
+        this.listaPoligonos = listaPoligonos;
         this.vista.btnGuardar.addActionListener(this);
         this.vista.btnLimpiar.addActionListener(this);
         this.vista.btnCalcular.addActionListener(this);
@@ -42,51 +55,23 @@ public class RegistrarCoordenadas implements ActionListener {
         vista.setVisible(true);
     }
 
-    /**
-     * Método que recibe las coordenadas del triangulo.
-     *
-     * @param x1 párametro que recibe la coordenada x1
-     * @param y1 párametro que recibe la coordenada y1
-     * @param x2 párametro que recibe la coordenada x2
-     * @param y2 párametro que recibe la coordenada y2
-     * @param x3 párametro que recibe la coordenada x3
-     * @param y3 párametro que recibe la coordenada y3
-     * @param color párametro que recibe el color.
-     */
-    public void registroTriangulo(double x1, double y1, double x2, double y2, double x3, double y3, String color) {
-        figura = new Triangulo(x1, y1, x2, y2, x3, y3, color);
-        vista.inputArea.setText(Double.toString(figura.hallarArea()));
-        vista.inputPerimetro.setText(Double.toString(figura.hallarPerimetro()));
-        vista.inputTipoTriangulo.setText(((Triangulo) figura).hallarTipoTriangulo());
-        ventana = new FormularioGrafico();
-        gC = new GraficarCoordenadas(ventana, figura);
-        gC.iniciar();
-    }
-
-    /**
-     * Método que recibe las coordenadas del cuadrilatero sea Cuadrado o
-     * Rectangulo.
-     *
-     * @param x1 párametro que recibe la coordenada x1
-     * @param y1 párametro que recibe la coordenada y1
-     * @param x2 párametro que recibe la coordenada x2
-     * @param y2 párametro que recibe la coordenada y2
-     * @param x3 párametro que recibe la coordenada x3
-     * @param y3 párametro que recibe la coordenada y3
-     * @param x4 párametro que recibe la coordenada x4
-     * @param y4 párametro que recibe la coordenada y4
-     * @param color párametro que recibe el color.
-     */
-    public void registroCuadrilatero(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4, String color) {
-        if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
-            Cuadrado c1 = new Cuadrado(x1, y1, x2, y2, x3, y3, x4, y4, color);
-            vista.inputArea.setText(Double.toString(c1.hallarArea()));
-            vista.inputPerimetro.setText(Double.toString(c1.hallarPerimetro()));
+    public void agregarPoligonos(double x1, double y1, double x2, double y2,
+            double x3, double y3, double x4, double y4, String color) {
+        if (vista.listaFiguras.getSelectedItem().equals("Triangulo")) {
+            listaPoligonos.add(new Triangulo(x1, y1, x2, y2, x3, y3, color));
+            ventana = new FormularioGrafico();
+            gC = new GraficarCoordenadas(ventana, listaPoligonos);
+        } else if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
+            listaPoligonos.add(new Cuadrado(x1, y1, x2, y2, x3, y3, x4, y4, color));
+            ventana = new FormularioGrafico();
+            gC = new GraficarCoordenadas(ventana, listaPoligonos);
         } else if (vista.listaFiguras.getSelectedItem().equals("Rectangulo")) {
-            Rectangulo r1 = new Rectangulo(x1, y1, x2, y2, x3, y3, x4, y4, color);
-            vista.inputArea.setText(Double.toString(r1.hallarArea()));
-            vista.inputPerimetro.setText(Double.toString(r1.hallarPerimetro()));
+            listaPoligonos.add(new Rectangulo(x1, y1, x2, y2, x3, y3, x4, y4, color));
+            ventana = new FormularioGrafico();
+            gC = new GraficarCoordenadas(ventana, listaPoligonos);
         }
+        // limpiamos las cajas de texto.
+        limpiar();
     }
 
     /**
@@ -112,60 +97,43 @@ public class RegistrarCoordenadas implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnCalcular) {
-
-            if (vista.listaFiguras.getSelectedItem().equals("Triangulo")) {
-//                try {
-                /**
-                 * Se invoca el método registroTriangulo para registrar las
-                 * coordenadas del triangulo.
-                 */
-                registroTriangulo(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                        Double.parseDouble(vista.inputCoordenaday3.getText()), vista.listaColores.getSelectedItem().toString());
-
-//                } catch (NumberFormatException e1) {
-//                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-//                    System.out.println("Datos no tomados. " + e1);
-//                    limpiar();
-//                }
-            } else if (vista.listaFiguras.getSelectedItem().equals("Cuadrado")) {
-                try {
-                    /**
-                     ** Se invoca el método registroCuadrilatero para registrar
-                     * las coordenadas del cuadrado.
-                     */
-                    registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                            Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaColores.getSelectedItem().toString());
-                } catch (NumberFormatException e1) {
-                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados. " + e1);
-                    limpiar();
-                }
-            } else if (vista.listaFiguras.getSelectedItem().equals("Rectangulo")) {
-                try {
-                    /**
-                     * Se invoca el método registroCuadrilatero para registrar
-                     * las coordenadas del rectangulo.
-                     */
-                    registroCuadrilatero(Double.parseDouble(vista.inputCoordenadax1.getText()),
-                            Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
-                            Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
-                            Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
-                            Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaColores.getSelectedItem().toString());
-                } catch (NumberFormatException e1) {
-                    JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("Datos no tomados. " + e1);
-                    limpiar();
+            for (IOperaciones lista : listaPoligonos) {
+                if (lista instanceof Triangulo) {
+                    vista.inputArea.setText(Double.toString(((Triangulo) lista).hallarArea()));
+                    vista.inputPerimetro.setText(Double.toString(((Triangulo) lista).hallarPerimetro()));
+                    vista.inputTipoTriangulo.setText(((Triangulo) lista).hallarTipoTriangulo());
+                    gC.iniciar();
+                } else if (lista instanceof Cuadrado) {
+                    vista.inputArea.setText(Double.toString(((Cuadrado) lista).hallarArea()));
+                    vista.inputPerimetro.setText(Double.toString(((Cuadrado) lista).hallarPerimetro()));
+                    gC.iniciar();
+                } else if (lista instanceof Rectangulo) {
+                    vista.inputArea.setText(Double.toString(((Rectangulo) lista).hallarArea()));
+                    vista.inputPerimetro.setText(Double.toString(((Rectangulo) lista).hallarPerimetro()));
+                    gC.iniciar();
+                } else {
+                    throw new AssertionError("Subtipo desconocido no se encontro.");
                 }
             }
         }
-
+        /**
+         * Ingresa al botón guardar.
+         */
         if (e.getSource() == vista.btnGuardar) {
-
+            try {
+                /**
+                 * Se invoca el Método agregarPoligonos.
+                 */
+                agregarPoligonos(Double.parseDouble(vista.inputCoordenadax1.getText()),
+                        Double.parseDouble(vista.inputCoordenaday1.getText()), Double.parseDouble(vista.inputCoordenadax2.getText()),
+                        Double.parseDouble(vista.inputCoordenaday2.getText()), Double.parseDouble(vista.inputCoordenadax3.getText()),
+                        Double.parseDouble(vista.inputCoordenaday3.getText()), Double.parseDouble(vista.inputCoordenadax4.getText()),
+                        Double.parseDouble(vista.inputCoordenaday4.getText()), vista.listaColores.getSelectedItem().toString());
+            } catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog(null, "Solo ingrese números.", "Error!", JOptionPane.ERROR_MESSAGE);
+                System.out.println("Datos no tomados. " + e1);
+                limpiar();
+            }
         }
 
         /**

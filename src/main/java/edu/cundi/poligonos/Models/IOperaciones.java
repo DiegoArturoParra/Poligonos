@@ -8,7 +8,16 @@ package edu.cundi.poligonos.Models;
  */
 public interface IOperaciones {
 
+    /**
+     *
+     * @return retorna el perimetro del poligono varia según el cuerpo del
+     * método.
+     */
     public double hallarPerimetro();
 
+    /**
+     *
+     * @return retorna el area del poligono varia según el cuerpo del método.
+     */
     public double hallarArea();
 }

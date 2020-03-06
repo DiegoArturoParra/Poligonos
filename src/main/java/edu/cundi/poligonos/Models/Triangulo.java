@@ -86,6 +86,12 @@ public class Triangulo extends Poligonos {
         return tipoTriangulo;
     }
 
+    /**
+     * Método que grafica el triangulo según las distancias de coordenadas.
+     *
+     * @param g parámetro como objeto de la clase Graphics para poder graficar
+     * el triangulo.
+     */
     @Override
     public void pintarPoligono(Graphics g) {
         pintarColor(g);
@@ -93,5 +99,5 @@ public class Triangulo extends Poligonos {
         int coordenadasY[] = {(int) getCoordenaday1(), (int) getCoordenaday2(), (int) getCoordenaday3()};
         Polygon p = new Polygon(coordenadasX, coordenadasY, 3);
         g.fillPolygon(p);
-    }    
+    }
 }

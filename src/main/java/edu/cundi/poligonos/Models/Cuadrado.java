@@ -40,15 +40,22 @@ public class Cuadrado extends Cuadrilatero {
 
     /**
      *
-     * @return Metodo que halla el area tanto del rectangulo.
+     * @return Método que halla el area tanto del cuadrado.
      */
     @Override
     public double hallarArea() {
         return Math.pow(getDistanciaCoordenadasx1y1_x2y2(), 2);
     }
 
+    /**
+     * Método que grafica el cuadrado según las distancias de coordenadas.
+     *
+     * @param g parámetro como objeto de la clase Graphics para poder graficar
+     * el cuadrado.
+     */
     @Override
     public void pintarPoligono(Graphics g) {
         pintarColor(g);
+        g.fillRect(200, 100, (int) getDistanciaCoordenadasx1y1_x2y2(), (int) getDistanciaCoordenadasx2y2_x4y4());
     }
 }

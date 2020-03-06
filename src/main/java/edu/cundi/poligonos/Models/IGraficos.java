@@ -10,5 +10,11 @@ import java.awt.Graphics;
  */
 public interface IGraficos {
 
+    /**
+     * Método que gráfica el poligono según las distancias de coordenadas.
+     *
+     * @param g parámetro como objeto de la clase Graphics para poder graficar
+     * el poligono.
+     */
     public void pintarPoligono(Graphics g);
 }

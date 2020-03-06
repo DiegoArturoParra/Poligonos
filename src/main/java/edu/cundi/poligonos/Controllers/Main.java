@@ -1,6 +1,9 @@
 package edu.cundi.poligonos.Controllers;
 
+import edu.cundi.poligonos.Models.IOperaciones;
 import edu.cundi.poligonos.Views.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Esta clase Ejecuta el programa(formulario)
@@ -22,8 +25,8 @@ public class Main {
          * ejecutarlo.
          */
         Formulario ventana = new Formulario();
-        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana);
+        List<IOperaciones> listaPoligonos = new ArrayList<>();
+        RegistrarCoordenadas rc = new RegistrarCoordenadas(ventana, listaPoligonos);
         rc.iniciar();
     }
 }
-
