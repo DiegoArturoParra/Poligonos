@@ -7,6 +7,7 @@ import javax.swing.*;
  * // clase que muestra un plano cartesiano en un jframe.
  *
  * @author diego parra
+ * @version 1.1.0
  */
 public class PlanoCartesiano extends JPanel {
 

@@ -42,14 +42,6 @@ public class Triangulo extends Poligonos {
 
     /**
      *
-     * @param tipoTriangulo párametro que guarda el tipo del triangulo.
-     */
-    public void setTipoTriangulo(String tipoTriangulo) {
-        this.tipoTriangulo = tipoTriangulo;
-    }
-
-    /**
-     *
      * @return Este método halla el perimetro del triangulo según las
      * coordenadas.
      */
@@ -112,7 +104,7 @@ public class Triangulo extends Poligonos {
     }
 
     /**
-     * 
+     *
      * @return imprime los datos del triangulo.
      */
     @Override
