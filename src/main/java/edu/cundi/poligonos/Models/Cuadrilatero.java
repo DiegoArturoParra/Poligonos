@@ -98,4 +98,5 @@ public abstract class Cuadrilatero extends Poligonos {
         return distanciaCoordenadasx2y2_x4y4;
     }
 
+    
 }

@@ -59,13 +59,17 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
     private double distanciaCoordenadasx1y1_x3y3;
 
     /**
-     * Stributo que guarda el color de la figura.
+     * Atributo que guarda el color del poligono.
      */
     private String colorPoligono;
-
-    // Constructor por defecto.
-    public Poligonos() {
-    }
+    /**
+     * Atributo que guarda el area del poligono.
+     */
+    private double area;
+    /**
+     * Atributo que guarda el perimetro del poligono.
+     */
+    private double perimetro;
 
     /**
      * Constructor de la clase padre con los parametros en comun de las clases
@@ -180,6 +184,38 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
 
     /**
      *
+     * @return retorna el area del poligono.
+     */
+    public double getArea() {
+        return area;
+    }
+
+    /**
+     *
+     * @param area párametro que guarda el area del poligono.
+     */
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    /**
+     *
+     * @return retorna el perimetro del poligono.
+     */
+    public double getPerimetro() {
+        return perimetro;
+    }
+
+    /**
+     *
+     * @param perimetro párametro que guarda el perimetro del poligono.
+     */
+    public void setPerimetro(double perimetro) {
+        this.perimetro = perimetro;
+    }
+
+    /**
+     *
      * @return Método que valida que color desea el usuario en el poligono.
      */
     public Color validarColor() {
@@ -200,11 +236,35 @@ public abstract class Poligonos implements IOperaciones, IGraficos {
     }
 
     /**
-     *Método que pinta el color del poligono.
-     * @param g parámetro como objeto de la clase Graphics para poder agregar el color.
+     * Método que pinta el color del poligono.
+     *
+     * @param g parámetro como objeto de la clase Graphics para poder agregar el
+     * color.
      */
     public void pintarColor(Graphics g) {
         Color c = validarColor();
         g.setColor(c);
     }
+
+    /**
+     *
+     * @return retorna o imprime la información del poligono.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Poligonos{idPoligono=").append(idPoligono);
+        sb.append(", coordenadax1=").append(coordenadax1);
+        sb.append(", coordenaday1=").append(coordenaday1);
+        sb.append(", coordenadax2=").append(coordenadax2);
+        sb.append(", coordenaday2=").append(coordenaday2);
+        sb.append(", coordenadax3=").append(coordenadax3);
+        sb.append(", coordenaday3=").append(coordenaday3);
+        sb.append(", colorPoligono=").append(colorPoligono);
+        sb.append(", area=").append(area);
+        sb.append(", perimetro=").append(perimetro);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

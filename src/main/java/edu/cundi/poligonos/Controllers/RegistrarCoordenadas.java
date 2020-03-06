@@ -89,6 +89,16 @@ public class RegistrarCoordenadas implements ActionListener {
         vista.inputArea.setText("");
         vista.inputPerimetro.setText("");
     }
+/**
+ * Método que imprime los datos de la lista.
+ */
+    public void imprimirDatos() {
+        String listaCompleta = "";
+        for (IOperaciones lista : listaPoligonos) {
+            listaCompleta += "\n" + lista.toString();
+        }
+        System.out.println("LISTA DE POLIGONOS" + listaCompleta);
+    }
 
     /**
      *
@@ -97,6 +107,11 @@ public class RegistrarCoordenadas implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnCalcular) {
+            /**
+             * recorremos la lista de poligonos y saber que instancia tiene la
+             * lista para asi castear.
+             */
+            imprimirDatos();
             for (IOperaciones lista : listaPoligonos) {
                 if (lista instanceof Triangulo) {
                     vista.inputArea.setText(Double.toString(((Triangulo) lista).hallarArea()));
@@ -116,6 +131,7 @@ public class RegistrarCoordenadas implements ActionListener {
                 }
             }
         }
+
         /**
          * Ingresa al botón guardar.
          */

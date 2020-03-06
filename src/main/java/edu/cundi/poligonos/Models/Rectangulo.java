@@ -35,7 +35,8 @@ public class Rectangulo extends Cuadrilatero {
      */
     @Override
     public double hallarPerimetro() {
-        return 2 * (getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx4y4_x1y1());
+        setPerimetro(getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx4y4_x1y1());
+        return getPerimetro();
     }
 
     /**
@@ -44,7 +45,8 @@ public class Rectangulo extends Cuadrilatero {
      */
     @Override
     public double hallarArea() {
-        return getDistanciaCoordenadasx1y1_x2y2() * getDistanciaCoordenadasx4y4_x1y1();
+        setArea(getDistanciaCoordenadasx1y1_x2y2() * getDistanciaCoordenadasx4y4_x1y1());
+        return getArea();
     }
 
     /**

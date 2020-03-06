@@ -22,6 +22,10 @@ public class GraficarCoordenadas implements ActionListener {
      */
     private FormularioGrafico grafico;
 
+    public GraficarCoordenadas() {
+    }
+
+    
     public GraficarCoordenadas(FormularioGrafico grafico, List<IOperaciones> listaPoligonos) {
         this.grafico = grafico;
         this.listaPoligonos = listaPoligonos;
@@ -41,6 +45,10 @@ public class GraficarCoordenadas implements ActionListener {
      * Método para graficar el poligono en el plano cartesiano.
      */
     public void graficar() {
+        /**
+         * recorremos la lista de poligonos y saber que instancia tiene la lista
+         * para asi castear y graficar en el plano.
+         */
         for (IOperaciones lista : listaPoligonos) {
             if (lista instanceof Triangulo) {
                 ((Triangulo) lista).pintarPoligono(grafico.plano.getGraphics());

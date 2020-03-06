@@ -35,7 +35,8 @@ public class Cuadrado extends Cuadrilatero {
      */
     @Override
     public double hallarPerimetro() {
-        return getDistanciaCoordenadasx1y1_x2y2() * 4;
+        setPerimetro(getDistanciaCoordenadasx1y1_x2y2() * 4);
+        return getPerimetro();
     }
 
     /**
@@ -44,7 +45,8 @@ public class Cuadrado extends Cuadrilatero {
      */
     @Override
     public double hallarArea() {
-        return Math.pow(getDistanciaCoordenadasx1y1_x2y2(), 2);
+        setArea(Math.pow(getDistanciaCoordenadasx1y1_x2y2(), 2));
+        return getArea();
     }
 
     /**
@@ -56,6 +58,6 @@ public class Cuadrado extends Cuadrilatero {
     @Override
     public void pintarPoligono(Graphics g) {
         pintarColor(g);
-        g.fillRect(200, 100, (int) getDistanciaCoordenadasx1y1_x2y2(), (int) getDistanciaCoordenadasx2y2_x4y4());
+        g.fillRect(500, 400, (int) getDistanciaCoordenadasx1y1_x2y2(), (int) getDistanciaCoordenadasx2y2_x4y4());
     }
 }

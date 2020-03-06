@@ -42,13 +42,22 @@ public class Triangulo extends Poligonos {
 
     /**
      *
+     * @param tipoTriangulo párametro que guarda el tipo del triangulo.
+     */
+    public void setTipoTriangulo(String tipoTriangulo) {
+        this.tipoTriangulo = tipoTriangulo;
+    }
+
+    /**
+     *
      * @return Este método halla el perimetro del triangulo según las
      * coordenadas.
      */
     @Override
     public double hallarPerimetro() {
-
-        return getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx1y1_x3y3() + getDistanciaCoordenadasx2y2_x3y3();
+        
+        setPerimetro(getDistanciaCoordenadasx1y1_x2y2() + getDistanciaCoordenadasx1y1_x3y3() + getDistanciaCoordenadasx2y2_x3y3());
+        return getPerimetro();
     }
 
     /**
@@ -58,8 +67,9 @@ public class Triangulo extends Poligonos {
      */
     @Override
     public double hallarArea() {
-        return Math.abs(getCoordenadax1() * (getCoordenaday2() - getCoordenaday3()) + getCoordenadax2()
-                * (getCoordenaday3() - getCoordenaday1()) + getCoordenadax3() * (getCoordenaday1() - getCoordenaday2())) / 2;
+        setArea(Math.abs(getCoordenadax1() * (getCoordenaday2() - getCoordenaday3()) + getCoordenadax2()
+                * (getCoordenaday3() - getCoordenaday1()) + getCoordenadax3() * (getCoordenaday1() - getCoordenaday2())) / 2);
+        return getArea();
     }
 
     /**
@@ -68,7 +78,7 @@ public class Triangulo extends Poligonos {
      * hizo con las distancias.
      */
     public String hallarTipoTriangulo() {
-
+        
         if (getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx1y1_x3y3()
                 && getDistanciaCoordenadasx1y1_x2y2() == getDistanciaCoordenadasx2y2_x3y3()) {
             tipoTriangulo = "Equilatero";
@@ -100,4 +110,5 @@ public class Triangulo extends Poligonos {
         Polygon p = new Polygon(coordenadasX, coordenadasY, 3);
         g.fillPolygon(p);
     }
+    
 }
